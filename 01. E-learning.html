@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>01. E-learning.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="h%E1%BB%87-th%E1%BB%91ng-website-codefarm-e-learning-cf-edu">Hệ thống Website CodeFarm E-learning (CF-Edu)</h1>
+<h2 id="1-m%E1%BB%A5c-ti%C3%AAu">1. Mục tiêu</h2>
+<p>Xây dựng hệ thống học trực tuyến CF-Edu trên nền tảng website, cung cấp các khóa học từ nhà tài trợ (nhà cung cấp). Các khóa học có thể miễn phí, trả phí. Nhà cung cấp đăng tải khóa học, quản trị viên (admin) đóng vai trò bên thứ ba để tăng uy tín và phân phối sản phẩm đến khách hàng (người học).</p>
+<h2 id="2-ph%E1%BA%A1m-vi">2. Phạm vi</h2>
+<ul>
+<li>Áp dụng cho tất cả người dùng đã đăng ký tài khoản trên hệ thống.</li>
+<li>Người dùng có thể tham gia khóa học hoặc trở thành nhà cung cấp khóa học.</li>
+<li>Không bao gồm tích hợp ứng dụng di động hoặc hệ thống offline (tập trung vào website).</li>
+</ul>
+<h2 id="3-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-ng%C6%B0%E1%BB%9Di-d%C3%B9ng">3. Đối tượng người dùng</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>Vai trò</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Admin (Quản trị hệ thống)</td>
+<td>Quản lý toàn bộ nền tảng, kiểm soát hoạt động của khách hàng và nhà cung cấp, xử lý tranh chấp và báo cáo hệ thống.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Customer (Khách hàng)</td>
+<td>Người sử dụng hệ thống để mua/đăng ký khóa học; có thể nâng cấp thành nhà cung cấp.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Course Provider (Nhà cung cấp khóa học - NCC)</td>
+<td>Đăng tải, quản lý khóa học và chương trình khuyến mãi để bán cho khách hàng.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-ch%E1%BB%A9c-n%C4%83ng-ch%C3%ADnh">4. Chức năng chính</h2>
+<p>Chức năng được nhóm theo vai trò và module để dễ triển khai. Gợi ý công nghệ: React 没办法 React/Vue (frontend), Node.js/Spring Boot (backend), PostgreSQL/MongoDB (database); tích hợp email (SendGrid), thanh toán (Stripe/VNPay), lưu trữ media (AWS S3).</p>
+<h3 id="41-vai-tr%C3%B2-customer-kh%C3%A1ch-h%C3%A0ng">4.1. Vai trò: Customer (Khách hàng)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-t%C3%A0i-kho%E1%BA%A3n-qltt">Module: Quản lý tài khoản (QLTT)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CT-QLTT01</td>
+<td>Đăng ký tài khoản hoặc đăng ký với tài khoản google</td>
+<td>Tạo tài khoản mới với thông tin cơ bản (email, mật khẩu, tên).</td>
+<td>Email chưa tồn tại trên hệ thống.</td>
+</tr>
+<tr>
+<td>CT-QLTT02</td>
+<td>Đăng nhập</td>
+<td>Đăng nhập bằng email và mật khẩu.</td>
+<td>Tài khoản tồn tại, thông tin khớp.</td>
+</tr>
+<tr>
+<td>CT-QLTT03</td>
+<td>Quên mật khẩu</td>
+<td>Gửi link reset mật khẩu qua email.</td>
+<td>Tài khoản tồn tại.</td>
+</tr>
+<tr>
+<td>CT-QLTT04</td>
+<td>Xem thông tin cá nhân</td>
+<td>Hiển thị thông tin cá nhân (tên, email, lịch sử đăng ký).</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CT-QLTT05</td>
+<td>Cập nhật thông tin cá nhân</td>
+<td>Cập nhật thông tin (trừ email), thay đổi mật khẩu.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CT-QLTT06</td>
+<td>Yêu cầu xóa tài khoản</td>
+<td>Xóa tài khoản và dữ liệu liên quan (sau xác nhận).</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CT-QLTT07</td>
+<td>Nhận thông báo</td>
+<td>Nhận thông báo về sự kiện, cập nhật hệ thống (email/push).</td>
+<td>Đã đăng ký nhận thông báo.</td>
+</tr>
+<tr>
+<td>CT-QLTT08</td>
+<td>Đăng ký làm NCC</td>
+<td>Nâng cấp tài khoản thành nhà cung cấp khóa học.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-kh%C3%B3a-h%E1%BB%8Dc-qlkh">Module: Quản lý khóa học (QLKH)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CT-QLKH01</td>
+<td>Danh sách khóa học đã đăng ký</td>
+<td>Xem danh sách khóa học đã đăng ký/mua.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CT-QLKH02</td>
+<td>Xem chi tiết khóa học đã đăng ký</td>
+<td>Xem mô tả, nội dung chi tiết khóa học.</td>
+<td>Đã đăng nhập; đã đăng ký khóa học.</td>
+</tr>
+<tr>
+<td>CT-QLKH03</td>
+<td>Xem bài học của khóa học</td>
+<td>Xem video, tài liệu bài học.</td>
+<td>Đã đăng nhập; đã đăng ký khóa học.</td>
+</tr>
+<tr>
+<td>CT-QLKH04</td>
+<td>Đánh giá khóa học</td>
+<td>Đánh giá bằng rating và comment.</td>
+<td>Đã đăng nhập; đã đăng ký khóa học.</td>
+</tr>
+<tr>
+<td>CT-QLKH05</td>
+<td>Xem danh sách khóa học</td>
+<td>Xem tất cả khóa học trên trang chủ (lọc theo danh mục, giá).</td>
+<td>Không yêu cầu.</td>
+</tr>
+<tr>
+<td>CT-QLKH06</td>
+<td>Đăng ký khóa học</td>
+<td>Đăng ký/mua khóa học (áp dụng mã giảm giá nếu có).</td>
+<td>Đã đăng nhập; chưa đăng ký khóa học.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Lưu ý: Có áp dụng thanh toán online. Admin nhận tiền, xác nhận và chuyển tiền cho NCC định kỳ theo triết khấu (ví dụ chi phí cho nền tảng là 40%).</p>
+</blockquote>
+<h3 id="42-vai-tr%C3%B2-course-provider-nh%C3%A0-cung-c%E1%BA%A5p-kh%C3%B3a-h%E1%BB%8Dc---ncc">4.2. Vai trò: Course Provider (Nhà cung cấp khóa học - NCC)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-kh%C3%B3a-h%E1%BB%8Dc-qlkh">Module: Quản lý khóa học (QLKH)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CP-QLKH01</td>
+<td>Tạo khóa học</td>
+<td>Tạo mới khóa học với mô tả, nội dung, mục tiêu.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLKH02</td>
+<td>Chỉnh sửa khóa học</td>
+<td>Cập nhật thông tin, nội dung khóa học.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLKH03</td>
+<td>Xóa khóa học</td>
+<td>Xóa khóa học không còn sử dụng.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLKH04</td>
+<td>Quản lý bài giảng</td>
+<td>Tải lên/quản lý video, tài liệu bài giảng.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-%C6%B0u-%C4%91%C3%A3i-qlud">Module: Quản lý ưu đãi (QLUD)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CP-QLUD01</td>
+<td>Tạo mã giảm giá</td>
+<td>Tạo mã giảm giá cho khóa học.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLUD02</td>
+<td>Chỉnh sửa mã giảm giá</td>
+<td>Cập nhật thông tin mã giảm giá.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLUD03</td>
+<td>Xóa mã giảm giá</td>
+<td>Xóa mã giảm giá không còn hiệu lực.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLUD04</td>
+<td>Tạo chương trình ưu đãi</td>
+<td>Tạo ưu đãi (theo thời gian, số lượt đăng ký, gameshow).</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLUD05</td>
+<td>Chỉnh sửa chương trình ưu đãi</td>
+<td>Cập nhật ưu đãi hiện có.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLUD06</td>
+<td>Xóa chương trình ưu đãi</td>
+<td>Xóa ưu đãi không còn hiệu lực.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-QLUD07</td>
+<td>Quản lý quà tặng</td>
+<td>Tạo/quản lý quà tặng kèm khóa học.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="module-b%C3%A1o-c%C3%A1o-doanh-thu-bcds">Module: Báo cáo doanh thu (BCDS)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CP-BCDS01</td>
+<td>Xem báo cáo doanh thu</td>
+<td>Xem tổng quan doanh thu từ tất cả khóa học.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>CP-BCDS02</td>
+<td>Xem chi tiết doanh thu</td>
+<td>Xem doanh thu chi tiết từng khóa học (theo thời gian, lượt mua).</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Lưu ý: NCC nhận tiền thanh toán từ admin định kỳ (theo tuần/tháng) sau khi trừ chi phí nền tảng, các giao dịch được lưu trữ trên hệ thống.</p>
+</blockquote>
+<h3 id="43-vai-tr%C3%B2-admin-qu%E1%BA%A3n-tr%E1%BB%8B-h%E1%BB%87-th%E1%BB%91ng">4.3. Vai trò: Admin (Quản trị hệ thống)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-h%E1%BB%87-th%E1%BB%91ng-qlht">Module: Quản lý hệ thống (QLHT)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AD-QLHT01</td>
+<td>Quản lý người dùng</td>
+<td>Xem, chỉnh sửa, xóa tài khoản người dùng (customer/NCC).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT02</td>
+<td>Quản lý khóa học</td>
+<td>Duyệt, xóa khóa học từ NCC; kiểm soát chất lượng.</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT03</td>
+<td>Quản lý ưu đãi</td>
+<td>Giám sát, duyệt chương trình ưu đãi.</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT04</td>
+<td>Báo cáo hệ thống</td>
+<td>Xem báo cáo tổng thể (doanh thu, người dùng, hoạt động).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT05</td>
+<td>Gửi thông báo hệ thống</td>
+<td>Gửi thông báo đến tất cả người dùng.</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Lưu ý: Admin có quyền cao nhất, có thể can thiệp vào mọi hoạt động trên hệ thống để đảm bảo vận hành trơn tru và an toàn.</p>
+</blockquote>
+<h2 id="5-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-tri%E1%BB%83n-khai">5. Hướng dẫn triển khai</h2>
+<ul>
+<li><strong>Giai đoạn 1: Thiết kế</strong>
+<ul>
+<li>Vẽ wireframe UI/UX (Figma/Sketch).</li>
+<li>Thiết kế database schema (ERD với khóa học, người dùng, ưu đãi).</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 2: Phát triển</strong>
+<ul>
+<li>Triển khai backend API (RESTful).</li>
+<li>Phát triển frontend responsive.</li>
+<li>Tích hợp authentication (JWT/OAuth).</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 3: Kiểm thử</strong>
+<ul>
+<li>Unit test, integration test.</li>
+<li>Kiểm tra bảo mật nếu có (SQL injection, XSS).</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 4: Triển khai</strong>
+<ul>
+<li>Deploy trên cloud (AWS/Heroku/Netlify/Vercel/Render/MongoDB Atlas).</li>
+<li>Monitoring với tools như Sentry.</li>
+</ul>
+</li>
+<li><strong>Yêu cầu chung</strong>
+<ul>
+<li>Đảm bảo responsive design.</li>
+<li>Hỗ trợ đa ngôn ngữ (Việt/Anh).</li>
+<li>Tuân thủ GDPR cho dữ liệu cá nhân.</li>
+</ul>
+</li>
+</ul>
+<p>-- Hết --</p>
+
+</body>
+</html>

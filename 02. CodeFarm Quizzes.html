@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>02. CodeFarm Quizzes.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="h%E1%BB%87-th%E1%BB%91ng-website-codefarm-quizzes-cf-quizzes">Hệ thống Website CodeFarm Quizzes (CF-Quizzes)</h1>
+<h2 id="1-m%E1%BB%A5c-ti%C3%AAu">1. Mục tiêu</h2>
+<p>Xây dựng hệ thống CF-Quizzes trên nền tảng website để tạo, quản lý và thực hiện các bài trắc nghiệm phục vụ đánh giá nhân viên, học viên, và thực tập sinh. Hệ thống hỗ trợ nhà cung cấp (người ra đề) tạo bài kiểm tra, quản trị viên (admin) kiểm soát chất lượng và phân phối bài kiểm tra đến người dùng (người làm bài).</p>
+<h2 id="2-ph%E1%BA%A1m-vi">2. Phạm vi</h2>
+<ul>
+<li>Áp dụng cho tất cả người dùng đã đăng ký tài khoản trên hệ thống.</li>
+<li>Người dùng có thể làm bài trắc nghiệm hoặc trở thành nhà cung cấp bài kiểm tra.</li>
+<li>Tập trung vào website, không bao gồm ứng dụng di động hoặc hệ thống offline.</li>
+</ul>
+<h2 id="3-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-ng%C6%B0%E1%BB%9Di-d%C3%B9ng">3. Đối tượng người dùng</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>Vai trò</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Admin (Quản trị hệ thống)</td>
+<td>Quản lý nền tảng, kiểm soát người dùng và bài trắc nghiệm, xử lý tranh chấp và báo cáo.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Candidate (Người làm bài)</td>
+<td>Người sử dụng hệ thống để làm bài trắc nghiệm; có thể nâng cấp thành nhà cung cấp.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Quiz Provider (Nhà cung cấp bài kiểm tra - NCC)</td>
+<td>Tạo và quản lý bài trắc nghiệm để đánh giá người làm bài.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Lưu ý: NCC là người được admin uỷ quyền tạo và quản lý bài kiểm tra, không phải người dùng bình thường.</p>
+</blockquote>
+<h2 id="4-ch%E1%BB%A9c-n%C4%83ng-ch%C3%ADnh">4. Chức năng chính</h2>
+<p>Chức năng được nhóm theo vai trò và module để dễ triển khai. Gợi ý công nghệ: React, Node.js, PostgreSQL/MongoDB (database); tích hợp email (SendGrid/NodeMailer), lưu trữ media (AWS S3/Cloudinary).</p>
+<h3 id="41-vai-tr%C3%B2-candidate-ng%C6%B0%E1%BB%9Di-l%C3%A0m-b%C3%A0i">4.1. Vai trò: Candidate (Người làm bài)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-t%C3%A0i-kho%E1%BA%A3n-qltt">Module: Quản lý tài khoản (QLTT)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CA-QLTT01</td>
+<td>Đăng ký tài khoản</td>
+<td>Tạo tài khoản mới với email, mật khẩu, tên.</td>
+<td>Email chưa tồn tại trên hệ thống.</td>
+</tr>
+<tr>
+<td>CA-QLTT02</td>
+<td>Đăng nhập</td>
+<td>Đăng nhập bằng email và mật khẩu.</td>
+<td>Tài khoản tồn tại, thông tin khớp.</td>
+</tr>
+<tr>
+<td>CA-QLTT03</td>
+<td>Quên mật khẩu</td>
+<td>Gửi link reset mật khẩu qua email.</td>
+<td>Tài khoản tồn tại.</td>
+</tr>
+<tr>
+<td>CA-QLTT04</td>
+<td>Xem thông tin cá nhân</td>
+<td>Hiển thị thông tin cá nhân (tên, email, lịch sử làm bài).</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CA-QLTT05</td>
+<td>Cập nhật thông tin cá nhân</td>
+<td>Cập nhật thông tin (trừ email), thay đổi mật khẩu.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CA-QLTT06</td>
+<td>Yêu cầu xóa tài khoản</td>
+<td>Xóa tài khoản và dữ liệu liên quan (sau xác nhận).</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CA-QLTT07</td>
+<td>Nhận thông báo</td>
+<td>Nhận thông báo về bài kiểm tra mới, kết quả (email/push).</td>
+<td>Đã đăng ký nhận thông báo.</td>
+</tr>
+<tr>
+<td>CA-QLTT08</td>
+<td>Đăng ký làm NCC</td>
+<td>Nâng cấp tài khoản thành nhà cung cấp bài kiểm tra.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-b%C3%A0i-tr%E1%BA%AFc-nghi%E1%BB%87m-qltn">Module: Quản lý bài trắc nghiệm (QLTN)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CA-QLTN01</td>
+<td>Xem danh sách bài kiểm tra</td>
+<td>Xem tất cả bài kiểm tra có sẵn (lọc theo danh mục, độ khó).</td>
+<td>Không yêu cầu.</td>
+</tr>
+<tr>
+<td>CA-QLTN02</td>
+<td>Làm bài kiểm tra</td>
+<td>Tham gia bài trắc nghiệm, trả lời câu hỏi (trắc nghiệm/điền).</td>
+<td>Đã đăng nhập; chưa làm bài này.</td>
+</tr>
+<tr>
+<td>CA-QLTN03</td>
+<td>Xem kết quả bài kiểm tra</td>
+<td>Xem điểm số, câu trả lời đúng/sai và giải thích (nếu có).</td>
+<td>Đã đăng nhập; đã hoàn thành bài.</td>
+</tr>
+<tr>
+<td>CA-QLTN04</td>
+<td>Xem lịch sử bài kiểm tra</td>
+<td>Xem danh sách bài kiểm tra đã làm và kết quả tương ứng.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>CA-QLTN05</td>
+<td>Đánh giá bài kiểm tra</td>
+<td>Đánh giá bài kiểm tra bằng rating và comment.</td>
+<td>Đã đăng nhập; đã hoàn thành bài.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Lưu ý 1</strong>: Bài kiểm tra có thể có thời gian giới hạn, hỗ trợ dạng câu hỏi (trắc nghiệm 1 đáp án đúng).</p>
+</blockquote>
+<blockquote>
+<p><strong>Lưu ý 2</strong>: Trong tương lai có thể mở rộng thêm dạng câu hỏi lập trình (code snippet), điền từ, v.v. với chấm điểm tự động.</p>
+</blockquote>
+<h3 id="42-vai-tr%C3%B2-quiz-provider-nh%C3%A0-cung-c%E1%BA%A5p-b%C3%A0i-ki%E1%BB%83m-tra---ncc">4.2. Vai trò: Quiz Provider (Nhà cung cấp bài kiểm tra - NCC)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-b%C3%A0i-tr%E1%BA%AFc-nghi%E1%BB%87m-qltn">Module: Quản lý bài trắc nghiệm (QLTN)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QP-QLTN01</td>
+<td>Tạo bài kiểm tra</td>
+<td>Tạo bài kiểm tra với tiêu đề, mô tả, thời gian, độ khó.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>QP-QLTN02</td>
+<td>Chỉnh sửa bài kiểm tra</td>
+<td>Cập nhật thông tin, câu hỏi của bài kiểm tra.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>QP-QLTN03</td>
+<td>Xóa bài kiểm tra (xoá mềm hoặc xoá hẳn)</td>
+<td>Xóa bài kiểm tra không còn sử dụng.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>QP-QLTN04</td>
+<td>Quản lý ngân hàng câu hỏi</td>
+<td>Tạo, chỉnh sửa, xóa câu hỏi để sử dụng trong bài kiểm tra.</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+<tr>
+<td>QP-QLTN05</td>
+<td>Xem kết quả bài kiểm tra</td>
+<td>Xem thống kê kết quả của người làm bài (điểm trung bình, tỷ lệ đúng).</td>
+<td>Đã đăng nhập với vai trò NCC.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>NCC có thể đặt câu hỏi ở chế độ riêng tư khi chưa hoàn thiện, chỉ admin mới duyệt và công khai. Sau khi chỉnh sửa câu hỏi, admin cần duyệt lại để đảm bảo chất lượng.</p>
+</blockquote>
+<blockquote>
+<p>Mỗi câu hỏi đều có thể thuộc về một hoặc nhiều danh mục (tags) để dễ tìm kiếm và phân loại.</p>
+</blockquote>
+<blockquote>
+<p>Mỗi câu hỏi cũng có thể xuất hiện ở nhiều bài kiểm tra khác nhau - tái sử dụng câu hỏi.</p>
+</blockquote>
+<h3 id="43-vai-tr%C3%B2-admin-qu%E1%BA%A3n-tr%E1%BB%8B-h%E1%BB%87-th%E1%BB%91ng">4.3. Vai trò: Admin (Quản trị hệ thống)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-h%E1%BB%87-th%E1%BB%91ng-qlht">Module: Quản lý hệ thống (QLHT)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AD-QLHT01</td>
+<td>Quản lý người dùng</td>
+<td>Xem, chỉnh sửa, xóa tài khoản người dùng (candidate/NCC).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT02</td>
+<td>Quản lý bài kiểm tra</td>
+<td>Duyệt, xóa bài kiểm tra từ NCC; kiểm soát chất lượng.</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT03</td>
+<td>Báo cáo hệ thống</td>
+<td>Xem báo cáo tổng thể (số người dùng, bài kiểm tra, kết quả).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT04</td>
+<td>Gửi thông báo hệ thống</td>
+<td>Gửi thông báo đến tất cả người dùng (về bài kiểm tra, cập nhật).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT05</td>
+<td>Quản lý ngân hàng câu hỏi</td>
+<td>Duyệt, chỉnh sửa câu hỏi trong ngân hàng câu hỏi.</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Lưu ý 1</strong>: Admin có quyền cao nhất, đảm bảo chất lượng bài kiểm tra và bảo mật dữ liệu người dùng.
+<strong>Lưu ý 2</strong>: Cần tích hợp tính năng real-time notification (push/email) để thông báo kết quả bài kiểm tra, bài kiểm tra mới, hoặc thông báo khi có bài kiểm tra cần duyệt, được duyệt.</p>
+</blockquote>
+<h2 id="5-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-tri%E1%BB%83n-khai">5. Hướng dẫn triển khai</h2>
+<ul>
+<li><strong>Giai đoạn 1: Thiết kế</strong>
+<ul>
+<li>Vẽ wireframe UI/UX (Figma/Sketch) cho giao diện làm bài, quản lý câu hỏi.</li>
+<li>Thiết kế database schema (ERD với người dùng, bài kiểm tra, câu hỏi, kết quả).</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 2: Phát triển</strong>
+<ul>
+<li>Triển khai backend API (RESTful) cho quản lý câu hỏi, bài kiểm tra, và kết quả.</li>
+<li>Phát triển frontend responsive, hỗ trợ giao diện làm bài mượt mà.</li>
+<li>Tích hợp authentication (JWT/OAuth), chấm điểm tự động.</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 3: Kiểm thử</strong>
+<ul>
+<li>Unit test, integration test cho chức năng làm bài và chấm điểm.</li>
+<li>Kiểm tra bảo mật (SQL injection, XSS, lộ dữ liệu câu hỏi).</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 4: Triển khai</strong>
+<ul>
+<li>Deploy trên cloud (AWS/Heroku/Vercel).</li>
+<li>Monitoring với Sentry hoặc New Relic.</li>
+</ul>
+</li>
+<li><strong>Yêu cầu chung</strong>
+<ul>
+<li>Đảm bảo responsive design, hỗ trợ đa ngôn ngữ (Việt/Anh).</li>
+<li>Tuân thủ GDPR cho dữ liệu cá nhân.</li>
+<li>Bảo mật câu hỏi và kết quả (mã hóa dữ liệu nhạy cảm).</li>
+</ul>
+</li>
+</ul>
+<p>-- Hết --</p>
+
+</body>
+</html>

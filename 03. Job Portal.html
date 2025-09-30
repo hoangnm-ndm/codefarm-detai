@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>03. Job Portal.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="h%E1%BB%87-th%E1%BB%91ng-website-codefarm-job-portal-cf-tuyendung">Hệ thống Website CodeFarm Job Portal (CF-TuyenDung)</h1>
+<h2 id="1-m%E1%BB%A5c-ti%C3%AAu">1. Mục tiêu</h2>
+<p>Xây dựng hệ thống CF-TuyenDung trên nền tảng website để kết nối ứng viên và nhà tuyển dụng, hỗ trợ đăng tin tuyển dụng, tìm kiếm việc làm, nộp đơn ứng tuyển và quản lý hồ sơ. Hệ thống giúp nhà tuyển dụng (employer) đăng việc, quản lý ứng viên, và ứng viên (job seeker) tìm kiếm cơ hội việc làm phù hợp. Quản trị viên (admin) kiểm soát chất lượng tin tuyển dụng và quản lý hệ thống.</p>
+<h2 id="2-ph%E1%BA%A1m-vi">2. Phạm vi</h2>
+<ul>
+<li>Áp dụng cho tất cả người dùng đã đăng ký tài khoản trên hệ thống.</li>
+<li>Người dùng có thể tìm việc hoặc trở thành nhà tuyển dụng.</li>
+<li>Tập trung vào website, không bao gồm ứng dụng di động hoặc hệ thống offline.</li>
+</ul>
+<h2 id="3-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-ng%C6%B0%E1%BB%9Di-d%C3%B9ng">3. Đối tượng người dùng</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>Vai trò</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Admin (Quản trị hệ thống)</td>
+<td>Quản lý nền tảng, kiểm soát người dùng và tin tuyển dụng, xử lý tranh chấp và báo cáo.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Job Seeker (Ứng viên)</td>
+<td>Người sử dụng hệ thống để tìm việc, nộp đơn ứng tuyển; có thể nâng cấp thành nhà tuyển dụng.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Employer (Nhà tuyển dụng - NTD)</td>
+<td>Đăng tin tuyển dụng, quản lý hồ sơ ứng viên và đánh giá ứng tuyển.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Lưu ý: NTD là người được admin ủy quyền đăng tin và quản lý tuyển dụng, không phải người dùng bình thường.</p>
+</blockquote>
+<h2 id="4-ch%E1%BB%A9c-n%C4%83ng-ch%C3%ADnh">4. Chức năng chính</h2>
+<p>Chức năng được nhóm theo vai trò và module để dễ triển khai. Gợi ý công nghệ: React, Node.js, PostgreSQL/MongoDB (database); tích hợp email (SendGrid/NodeMailer), lưu trữ media (AWS S3/Cloudinary).</p>
+<h3 id="41-vai-tr%C3%B2-job-seeker-%E1%BB%A9ng-vi%C3%AAn">4.1. Vai trò: Job Seeker (Ứng viên)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-t%C3%A0i-kho%E1%BA%A3n-qltt">Module: Quản lý tài khoản (QLTT)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JS-QLTT01</td>
+<td>Đăng ký tài khoản</td>
+<td>Tạo tài khoản mới với email, mật khẩu, tên.</td>
+<td>Email chưa tồn tại trên hệ thống.</td>
+</tr>
+<tr>
+<td>JS-QLTT02</td>
+<td>Đăng nhập</td>
+<td>Đăng nhập bằng email và mật khẩu.</td>
+<td>Tài khoản tồn tại, thông tin khớp.</td>
+</tr>
+<tr>
+<td>JS-QLTT03</td>
+<td>Quên mật khẩu</td>
+<td>Gửi link reset mật khẩu qua email.</td>
+<td>Tài khoản tồn tại.</td>
+</tr>
+<tr>
+<td>JS-QLTT04</td>
+<td>Xem thông tin cá nhân</td>
+<td>Hiển thị thông tin cá nhân (tên, email, CV, lịch sử apply).</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>JS-QLTT05</td>
+<td>Cập nhật thông tin cá nhân</td>
+<td>Cập nhật thông tin (trừ email), thay đổi mật khẩu, upload CV.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>JS-QLTT06</td>
+<td>Yêu cầu xóa tài khoản</td>
+<td>Xóa tài khoản và dữ liệu liên quan (sau xác nhận).</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>JS-QLTT07</td>
+<td>Nhận thông báo</td>
+<td>Nhận thông báo về việc làm mới, kết quả apply (email/push).</td>
+<td>Đã đăng ký nhận thông báo.</td>
+</tr>
+<tr>
+<td>JS-QLTT08</td>
+<td>Đăng ký làm NTD</td>
+<td>Nâng cấp tài khoản thành nhà tuyển dụng.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-vi%E1%BB%87c-l%C3%A0m-qlvl">Module: Quản lý việc làm (QLVL)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JS-QLVL01</td>
+<td>Xem danh sách việc làm</td>
+<td>Xem tất cả tin tuyển dụng (lọc theo vị trí, địa điểm, lương).</td>
+<td>Không yêu cầu.</td>
+</tr>
+<tr>
+<td>JS-QLVL02</td>
+<td>Tìm kiếm việc làm</td>
+<td>Tìm kiếm theo từ khóa, lọc nâng cao (ngành nghề, kinh nghiệm).</td>
+<td>Không yêu cầu.</td>
+</tr>
+<tr>
+<td>JS-QLVL03</td>
+<td>Nộp đơn ứng tuyển</td>
+<td>Nộp CV và thư xin việc cho tin tuyển dụng.</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>JS-QLVL04</td>
+<td>Xem lịch sử ứng tuyển</td>
+<td>Xem danh sách việc đã apply và trạng thái (chờ duyệt, từ chối).</td>
+<td>Đã đăng nhập.</td>
+</tr>
+<tr>
+<td>JS-QLVL05</td>
+<td>Đánh giá nhà tuyển dụng</td>
+<td>Đánh giá NTD bằng rating và comment sau phỏng vấn.</td>
+<td>Đã đăng nhập; đã apply việc.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Lưu ý 1</strong>: Tin tuyển dụng có thể có thời hạn hết hạn, hỗ trợ upload CV dạng PDF/Word.</p>
+</blockquote>
+<blockquote>
+<p><strong>Lưu ý 2</strong>: Trong tương lai có thể mở rộng thêm tính năng matching việc làm dựa trên AI, hoặc chat trực tiếp với NTD.</p>
+</blockquote>
+<h3 id="42-vai-tr%C3%B2-employer-nh%C3%A0-tuy%E1%BB%83n-d%E1%BB%A5ng---ntd">4.2. Vai trò: Employer (Nhà tuyển dụng - NTD)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-vi%E1%BB%87c-l%C3%A0m-qlvl">Module: Quản lý việc làm (QLVL)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EM-QLVL01</td>
+<td>Đăng tin tuyển dụng</td>
+<td>Tạo tin với tiêu đề, mô tả, yêu cầu, lương, địa điểm.</td>
+<td>Đã đăng nhập với vai trò NTD.</td>
+</tr>
+<tr>
+<td>EM-QLVL02</td>
+<td>Chỉnh sửa tin tuyển dụng</td>
+<td>Cập nhật thông tin tin tuyển dụng.</td>
+<td>Đã đăng nhập với vai trò NTD.</td>
+</tr>
+<tr>
+<td>EM-QLVL03</td>
+<td>Xóa tin tuyển dụng (xoá mềm hoặc xoá hẳn)</td>
+<td>Xóa tin không còn sử dụng.</td>
+<td>Đã đăng nhập với vai trò NTD.</td>
+</tr>
+<tr>
+<td>EM-QLVL04</td>
+<td>Quản lý ứng viên</td>
+<td>Xem hồ sơ ứng viên, duyệt/từ chối apply, gửi email phỏng vấn.</td>
+<td>Đã đăng nhập với vai trò NTD.</td>
+</tr>
+<tr>
+<td>EM-QLVL05</td>
+<td>Xem thống kê tuyển dụng</td>
+<td>Xem số lượng apply, tỷ lệ phù hợp, báo cáo.</td>
+<td>Đã đăng nhập với vai trò NTD.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>NTD có thể đặt tin ở chế độ riêng tư khi chưa hoàn thiện, chỉ admin mới duyệt và công khai. Sau khi chỉnh sửa tin, admin cần duyệt lại để đảm bảo chất lượng.</p>
+</blockquote>
+<blockquote>
+<p>Mỗi tin tuyển dụng đều có thể thuộc về một hoặc nhiều ngành nghề (tags) để dễ tìm kiếm và phân loại.</p>
+</blockquote>
+<blockquote>
+<p>Mỗi NTD có thể quản lý nhiều tin tuyển dụng khác nhau - tái sử dụng template tin.</p>
+</blockquote>
+<h3 id="43-vai-tr%C3%B2-admin-qu%E1%BA%A3n-tr%E1%BB%8B-h%E1%BB%87-th%E1%BB%91ng">4.3. Vai trò: Admin (Quản trị hệ thống)</h3>
+<h4 id="module-qu%E1%BA%A3n-l%C3%BD-h%E1%BB%87-th%E1%BB%91ng-qlht">Module: Quản lý hệ thống (QLHT)</h4>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Chức năng</th>
+<th>Mô tả</th>
+<th>Điều kiện tiên quyết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AD-QLHT01</td>
+<td>Quản lý người dùng</td>
+<td>Xem, chỉnh sửa, xóa tài khoản người dùng (job seeker/NTD).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT02</td>
+<td>Quản lý tin tuyển dụng</td>
+<td>Duyệt, xóa tin từ NTD; kiểm soát chất lượng.</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT03</td>
+<td>Báo cáo hệ thống</td>
+<td>Xem báo cáo tổng thể (số người dùng, tin tuyển dụng, apply).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT04</td>
+<td>Gửi thông báo hệ thống</td>
+<td>Gửi thông báo đến tất cả người dùng (về việc làm mới, cập nhật).</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+<tr>
+<td>AD-QLHT05</td>
+<td>Quản lý ngành nghề/tags</td>
+<td>Duyệt, chỉnh sửa danh mục ngành nghề và tags.</td>
+<td>Đã đăng nhập với vai trò Admin.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Lưu ý 1</strong>: Admin có quyền cao nhất, đảm bảo chất lượng tin tuyển dụng và bảo mật dữ liệu người dùng.
+<strong>Lưu ý 2</strong>: Cần tích hợp tính năng real-time notification (push/email) để thông báo apply mới, tin được duyệt, hoặc kết quả apply.</p>
+</blockquote>
+<h2 id="5-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-tri%E1%BB%83n-khai">5. Hướng dẫn triển khai</h2>
+<ul>
+<li><strong>Giai đoạn 1: Thiết kế</strong>
+<ul>
+<li>Vẽ wireframe UI/UX (Figma/Sketch) cho giao diện tìm việc, đăng tin, quản lý hồ sơ.</li>
+<li>Thiết kế database schema (ERD với người dùng, tin tuyển dụng, apply, CV).</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 2: Phát triển</strong>
+<ul>
+<li>Triển khai backend API (RESTful) cho quản lý tin tuyển dụng, apply, và báo cáo.</li>
+<li>Phát triển frontend responsive, hỗ trợ giao diện tìm kiếm mượt mà.</li>
+<li>Tích hợp authentication (JWT/OAuth), matching cơ bản.</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 3: Kiểm thử</strong>
+<ul>
+<li>Unit test, integration test cho chức năng apply và duyệt tin.</li>
+<li>Kiểm tra bảo mật (SQL injection, XSS, lộ dữ liệu CV).</li>
+</ul>
+</li>
+<li><strong>Giai đoạn 4: Triển khai</strong>
+<ul>
+<li>Deploy trên cloud (AWS/Heroku/Vercel).</li>
+<li>Monitoring với Sentry hoặc New Relic.</li>
+</ul>
+</li>
+<li><strong>Yêu cầu chung</strong>
+<ul>
+<li>Đảm bảo responsive design, hỗ trợ đa ngôn ngữ (Việt/Anh).</li>
+<li>Tuân thủ GDPR cho dữ liệu cá nhân.</li>
+<li>Bảo mật CV và thông tin tuyển dụng (mã hóa dữ liệu nhạy cảm).</li>
+</ul>
+</li>
+</ul>
+<p>-- Hết --</p>
+
+</body>
+</html>

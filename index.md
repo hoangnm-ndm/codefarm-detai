@@ -3,7 +3,7 @@
 - [1. E-learning Platform (Nền tảng học trực tuyến)](01.%20E-learning.html)
 - [2. CodeFarm Quizzes (Hệ thống bài kiểm tra trực tuyến)](02.%20CodeFarm%20Quizzes.html)
 - [3. Job Portal (Website tuyển dụng)](03.%20Job%20Portal.html)
-- [4. Project Management Tool (Công cụ quản lý dự án)](04.%20Project%20Management%20Tool.html)
+- [4. Project Management System (Project Management System - PMS)](./04.%20Project%20Management%20System.html)
 - [5. Social Networking Site (Mạng xã hội)](05.%20Social%20Networking%20Site.html)
 - [6. E-commerce Platform (Nền tảng thương mại điện tử)](06.%20E-commerce%20Platform.html)
 - [7. Blogging Platform (Nền tảng viết blog)](07.%20Blogging%20Platform.html)
